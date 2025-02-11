@@ -1,4 +1,5 @@
 import pygame
+from pygame.display import set_icon
 
 # Initialize Pygame and variables
 pygame.init()
@@ -11,7 +12,9 @@ window = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # Load assets
 dust_image = pygame.image.load("assets/dust.png")
+icon_image = pygame.image.load("assets/icon.png")
 pre_load_overlay = pygame.image.load("assets/overlay.png")
+set_icon(icon_image)
 scale = (WIDTH, HEIGHT)
 overlay_image = pygame.transform.scale(pre_load_overlay, scale)
 overlay_mask = pygame.mask.from_surface(overlay_image)
@@ -44,7 +47,6 @@ def find_mask_height():
 find_mask_width()
 find_mask_height()
 
-print(mask_width, mask_height)
 
 # Set up the display
 drawing_width = WIDTH - mask_width
